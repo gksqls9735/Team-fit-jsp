@@ -1,0 +1,910 @@
+@charset "UTF-8";
+
+body {
+	font-family: Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: #f4f4f4;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+a {
+	text-decoration-line: none;
+}
+/* 헤더 */
+header {
+	height: 130px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background-color: #007BFF;
+}
+
+header input {
+	background-color: #007BFF;
+	border: 1px solid white;
+	height: 30px;
+	width: 200px;
+}
+
+header i {
+	color: white;
+	font-size: 20px;
+	padding-left: 15px;
+}
+
+header img {
+	transition: all 0.3s ease;
+	display: block;
+	margin: 10px auto 0px auto;
+	width: 100px;
+	height: 100px;
+}
+
+header img:hover {
+	transform: scale(1.1);
+	box-shadow: 0 0 20px gray;
+}
+
+header>ul {
+	display: flex;
+	list-style: none;
+}
+
+header a {
+	color: white;
+}
+
+header>ul>li {
+	font-size: 20px;
+}
+
+header>ul>li:first-child {
+	font-size: 20px;
+	margin-right: 100px;
+}
+
+header>ul>li>a:hover {
+	color: gray;
+}
+/* 메뉴 */
+nav {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	background-color: #007BFF;
+}
+
+#navmenu {
+	width: 50%;
+}
+
+nav>ul {
+	position: relative;
+	top: 16px;
+	z-index: 2;
+	list-style: none;
+	padding-left: 0;
+}
+
+nav>ul>li {
+	border-bottom: 2px solid #007BFF;
+	display: inline-block;
+	margin-left: 20px;
+}
+
+.submenu {
+	background-color: white;
+	position: absolute;
+	display: none;
+	margin-top: 2px;
+}
+
+.submenu>a {
+	display: block;
+	padding: 10px 15px;
+	color: #007BFF;
+	text-decoration: none; /* 밑줄 제거 */
+	font-weight: bold;
+	font-weight: 900;
+}
+
+.submenu>a:hover {
+	color: rgb(8, 89, 196);
+	text-decoration: none; /* 호버 상태에서 밑줄 제거 */
+}
+
+li:hover .submenu {
+	display: block;
+}
+
+li.member {
+	font-size: 15px;
+	margin-right: 10px;
+	padding: 0px;
+	margin-bottom: 10px;
+}
+
+li.member>a {
+	border: 2px solid white;
+	border-radius: 50px;
+	color: white;
+	text-decoration: none; /* 밑줄 제거 */
+}
+
+li.member>a:hover {
+	color: rgb(197, 5, 5);
+	border: 2px solid rgb(197, 5, 5);
+	text-decoration: none; /* 호버 상태에서 밑줄 제거 */
+}
+
+nav li.menu:hover {
+	border-bottom: 2px solid rgb(0, 55, 128);
+}
+
+nav ul {
+	padding-left: 0px;
+	list-style-type: none;
+}
+
+nav ul li {
+	margin-left: 20px;
+}
+
+nav ul li a {
+	color: white;
+	text-decoration: none; /* 밑줄 제거 */
+	font-weight: bold;
+	font-weight: 900;
+	display: block;
+	padding: 10px 15px;
+}
+
+nav ul li a:hover {
+	text-decoration: none; /* 호버 상태에서 밑줄 제거 */
+}
+
+main {
+	flex: 1;
+	padding: 20px;
+	box-sizing: border-box;
+	width: 100%;
+}
+
+/* 사진 css */
+div.slideshow {
+	background-color: black;
+	height: 465px;
+	min-width: 960px;
+	position: relative;
+	display: block;
+	overflow: hidden;
+}
+
+div.slideshow_slides {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+div.slideshow_slides>a {
+	display: inline-block;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	height: 100%;
+}
+
+/* nav css */
+div.slideshow_nav a {
+	position: absolute;
+	color: aliceblue;
+	font-size: 50px;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0.3;
+}
+
+div.slideshow_nav a.prev {
+	margin-left: -490px;
+}
+
+div.slideshow_nav a.next {
+	margin-left: 490px;
+}
+
+/* 인디케이터 css */
+div.indicator {
+	position: absolute;
+	text-align: center;
+	right: 0;
+	left: 0;
+	bottom: 10px;
+}
+
+div.indicator a {
+	display: inline-block;
+	font-size: 15px;
+	color: aliceblue;
+	padding: 0 5px;
+	opacity: 0.7;
+}
+
+div.indicator a.active {
+	color: yellow;
+}
+
+.hero-content {
+	max-width: 50%;
+}
+
+.hero-content h2 {
+	color: #007BFF;
+}
+
+.hero-image {
+	flex: 1;
+	display: flex;
+	justify-content: flex-end; /* Align the image to the right */
+}
+
+.hero-image img {
+	max-width: 30%;
+	height: auto;
+	border-radius: 8px;
+}
+
+.details {
+	display: flex;
+	justify-content: space-between;
+	margin: 20px 0;
+	flex-wrap: wrap;
+}
+
+.detail-card {
+	background-color: white;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	width: 30%;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+}
+
+.detail-card h3 {
+	color: #007BFF;
+	margin-bottom: 15px;
+}
+
+/*오늘의 추천 메뉴*/
+.carousel {
+  position: relative;
+  overflow: hidden;
+  height: auto; /* 높이를 자동으로 조정 */
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 1s ease-in-out;
+}
+
+.carousel-item {
+  display: flex; /* 아이템을 가로로 나란히 정렬 */
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.meal-table {
+  width: 60%; /* 테이블의 너비를 60%로 설정 */
+}
+
+.meal-image {
+  width: 40%; /* 이미지를 표시할 공간을 40%로 설정 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.meal-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.diet-content {
+  position: relative;
+  overflow: hidden;
+  height: auto; /* 높이를 자동으로 조정 */
+}
+
+.diet {
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 20px;
+  position: relative;
+  margin: 0 auto;
+  min-height: 200px; /* 최소 높이를 지정 */
+  height: auto; /* 높이를 자동으로 조정 */
+  background-color: #e9f7fe;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.legend-style {
+  font-size: 1.2em;
+  font-weight: bold;
+  background: white;
+  padding: 0 10px;
+  position: absolute;
+  top: -15px;
+  left: 20px;
+}
+
+
+/*로그인*/
+.signup {
+	background-color: white;
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	max-width: 800px;
+	margin: 150px 600px;
+}
+
+.signup h3 {
+	color: #007BFF;
+	margin-bottom: 15px;
+}
+
+form {
+	display: flex;
+	flex-direction: column;
+}
+
+form label {
+	margin-top: 1rem;
+}
+
+form input {
+	padding: 0.5rem;
+	margin-top: 0.5rem;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+}
+
+input.loginbutton {
+	margin-top: 1rem;
+	padding: 0.5rem;
+	background-color: #28A745;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+form button:hover {
+	background-color: #218838;
+}
+
+footer {
+	text-align: center;
+	padding: 1rem;
+	background-color: #6C757D;
+	color: white;
+	position: relative;
+	bottom: 0;
+	width: 100%;
+}
+/*폼전체*/
+.form-container {
+	background-color: #ffffff;
+	padding: 30px;
+	border-radius: 10px;
+	max-width: 1000px;
+	margin: 20px auto;
+	width: 100%;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	width: 100%;
+	margin: 20px auto;
+}
+
+.form-container h2 {
+	margin-bottom: 25px;
+	text-align: center;
+}
+
+.form-container .form-group {
+	margin-bottom: 20px;
+}
+
+.form-container .form-group label {
+	display: block;
+	margin-bottom: 8px;
+	font-weight: bold;
+}
+
+.form-container .form-group input, .form-container .form-group select,
+	.form-container .form-group textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+.form-group {
+	display: inline;
+}
+
+.form-container button {
+	background-color: #eeeeee;
+	width: 150px;
+	padding: 14px;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	box-sizing: border-box;
+	color: black;
+}
+
+.form-container button:hover {
+	background-color: #45a049;
+}
+
+/* 회원가입 폼 */
+div.signup {
+	background-color: #ffffff;
+	padding: 30px;
+	border-radius: 10px;
+	max-width: 1000px;
+	margin: 20px auto;
+	width: 100%;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	width: 100%;
+	margin: 20px auto;
+}
+
+div.signup h1 {
+	text-align: center;
+}
+
+div.signup div {
+	width: 80%;
+	margin: 20px auto;
+}
+
+div.signup p {
+	width: 100%;
+	margin: 0px auto;
+	border-top: 1px solid rgb(209, 209, 209);
+	border-bottom: 1px solid rgb(209, 209, 209);
+	padding: 20px 0;
+}
+
+div.signup form {
+	width: 80%;
+	margin: 0 auto;
+}
+
+div.signup table {
+	width: 100%;
+}
+
+div.signup table td.td1 {
+	width: 20%;
+	padding: 10px 0px 10px 10px;
+	background-color: rgb(226, 226, 226);
+}
+
+div.signup table td.td2 {
+	width: 80%;
+	padding: 10px 0;
+}
+
+div.signup table td.td2 input {
+	margin: 0;
+}
+
+div.signup table td {
+	border-bottom: 1px solid rgb(209, 209, 209);
+}
+
+div.signup span.re {
+	color: red;
+	font-size: 10px;
+}
+
+/* 강의 생성 폼 */
+.class-form h2 {
+	color: #8e24aa;
+}
+
+.class-form input[type="submit"] {
+	background-color: #eeeeee;
+	width: 150px;
+	padding: 14px;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	box-sizing: border-box;
+	color: black;
+	margin: 0 auto;
+}
+
+.class-form input[type="submit"]:hover {
+	background-color: #bfbfbf;
+}
+/* 강의 리스트*/
+.cl_app {
+	background-color: #eeeeee;
+	width: 60px;
+	padding: 10px 14px;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	box-sizing: border-box;
+	color: black;
+	margin: 0 auto;
+}
+
+.cl_app:hover {
+	background-color: #bfbfbf;
+}
+/* 고객센터 폼 */
+.support-form h2 {
+	color: #c62828;
+}
+
+div.supp_in {
+	margin: 0 auto;
+	display: flex;
+	width: 650px;
+	justify-content: space-around;
+	display: flex;
+}
+
+div.support-form input[type="submit"] {
+	background-color: #eeeeee;
+	width: 150px;
+	padding: 14px;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	box-sizing: border-box;
+	color: black;
+}
+
+div.support-form input[type="submit"]:hover {
+	background-color: #bfbfbf;
+}
+
+div.support-form input[type="reset"] {
+	background-color: #eeeeee;
+	width: 150px;
+	padding: 14px;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	box-sizing: border-box;
+	color: black;
+}
+
+div.support-form input[type="reset"]:hover {
+	background-color: #bfbfbf;
+}
+
+div.support-form input[type="button"] {
+	background-color: #eeeeee;
+	width: 150px;
+	padding: 14px;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	box-sizing: border-box;
+	color: black;
+}
+
+div.support-form input[type="button"]:hover {
+	background-color: #bfbfbf;
+}
+
+/*고객센터 게시판*/
+.support-list-container {
+	width: 90%;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #ffffff;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+}
+
+.support-list-container h2 {
+	text-align: center;
+	color: #c62828;
+}
+
+.filter-group {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.filter-group label {
+	margin-right: 10px;
+	font-weight: bold;
+}
+
+.filter-group select {
+	padding: 5px;
+}
+
+table.cs_list {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+table.cs_list, table.cs_list th, table.cs_list td {
+	border: 1px solid #ddd;
+}
+
+table.cs_list th, table.cs_list td {
+	padding: 10px;
+	text-align: center;
+}
+
+table.cs_list th {
+	background-color: #f2f2f2;
+}
+
+.pagination {
+	text-align: center;
+}
+
+.pagination a {
+	padding: 8px 16px;
+	margin: 0 4px;
+	border: 1px solid #ddd;
+	text-decoration: none;
+	color: #00796b;
+}
+
+.pagination a.active {
+	background-color: #00796b;
+	color: white;
+}
+
+.pagination a:hover {
+	background-color: #ddd;
+}
+/*아이디 찾기*/
+div.idsearch {
+	margin: 140px auto 140px auto;
+}
+
+div.idsearch input[type="submit"] {
+	width: 100%;
+	padding: 14px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+div.idsearch input[type="submit"]:hover {
+	background-color: #45a049;
+}
+
+div.pwsearch {
+	margin: 110px auto 110px auto;
+}
+
+div.pwsearch input[type="submit"] {
+	width: 100%;
+	padding: 14px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+div.pwsearch input[type="submit"]:hover {
+	background-color: #45a049;
+}
+
+#login {
+	width: 100%;
+	padding: 14px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+#login:hover {
+	background-color: #45a049;
+}
+
+#pwSearch {
+	width: 100%;
+	padding: 14px;
+	background-color: #00BCD4;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+#pwSearch:hover {
+	background-color: #00A3BB;
+}
+
+/*글내용 보여주기*/
+.form-container2 {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 20px;
+	background-color: #f9f9f9;
+	border: 1px solid #ddd;
+	border-radius: 5px;
+}
+
+.view-form h2 {
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+.table-header {
+	text-align: right;
+	margin-bottom: 10px;
+}
+
+.view-table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+.view-table th, .view-table td {
+	border: 1px solid #ddd;
+	padding: 10px;
+	text-align: left;
+}
+
+.view-table th {
+	background-color: #f2f2f2;
+	width: 20%;
+}
+
+.view-table td {
+	width: 80%;
+}
+
+.button-group {
+	margin: 0 auto;
+	display: flex;
+	width: 650px;
+	justify-content: space-around;
+}
+
+.button-group input[type="button"] {
+	background-color: #eeeeee;
+	width: 150px;
+	padding: 14px;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	box-sizing: border-box;
+	color: black;
+}
+
+.button-group input[type="button"]:hover {
+	background-color: #bfbfbf; /* hover 빨간색 */
+}
+
+.list-btn {
+	background-color: #32CD32; /* 초록색 */
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	margin: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+}
+
+.list-btn:hover {
+	background-color: #2E8B57; /* 어두운 초록색 */
+}
+
+/* 추가된 CSS */
+.content-textarea {
+	width: 100%;
+	height: 150px;
+	border: none;
+	resize: none;
+	overflow: auto;
+	background-color: transparent;
+}
+
+.content-textarea:focus {
+	outline: none;
+}
+
+/*글 삭제*/
+.submit-btn {
+	background-color: #4CAF50; /* 녹색 */
+	color: white;
+	border: none;
+	padding: 5px 20px;
+	margin: 5px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	width: 120px; /* 버튼의 폭을 고정 */
+}
+
+.submit-btn:hover {
+	background-color: #45A049; /* 어두운 녹색 */
+}
+
+/*내 강의 목록*/
+.myList {
+	width: 1000px;
+	margin: 20px auto;
+	padding: 20px;
+	background-color: #ffffff;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+	border-radius: 10px;
+}
+
+table.my_list {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+table.my_list, table.my_list th, table.my_list td {
+	border: 1px solid #ddd;
+}
+
+table.my_list th, table.my_list td {
+	padding: 10px;
+	text-align: center;
+}
+
+table.my_list>tbody>tr>td:first-child {
+	width: 200px;
+	background-color: #f2f2f2;
+}
+
+table.my_list>tbody>tr>td:last-child {
+	width: 800px;
+}
+
+table.my_list>thead>tr>td {
+	background-color: #f2f2f2;
+}

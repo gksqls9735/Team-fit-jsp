@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+body {
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	box-sizing: border-box;
+}
+
+.class-form {
+	background-color: #ffffff;
+	padding: 20px;
+	border-radius: 5px;
+	max-width: 1000px;
+	width: 100%;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	box-sizing: border-box;
+}
+
+.class-form h2 {
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+.class-form .form-group {
+	margin-bottom: 15px;
+}
+
+.class-form .form-group label {
+	display: block;
+	margin-bottom: 5px;
+}
+
+.class-form .form-group input, .class-form .form-group select,
+	.class-form .form-group textarea {
+	width: 100%;
+	padding: 10px;
+	border: 1px solid #ddd;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+.class-form button {
+	width: 100%;
+	padding: 10px;
+	background-color: #4CAF50;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	box-sizing: border-box;
+}
+
+.class-form button:hover {
+	background-color: #45a049;
+}
