@@ -29,7 +29,12 @@ public class InstructorsDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		int flag = 0;
-		
+		System.out.println("id" + vo.getInstructorID());
+		System.out.println("getSportType" + vo.getSportType());
+		System.out.println("getBio" + vo.getBio());
+		System.out.println("getExperienceYears" + vo.getExperienceYears());
+		System.out.println("getCertifications" + vo.getCertifications());
+		System.out.println("getLocation" + vo.getLocation());
 		try {
 			conn = DBPoolUtil.makeConnection();
 			pstmt = conn.prepareStatement("INSERT INTO INSTRUCTORS VALUES(?, ?, ?, ?, ?, ?)");

@@ -49,7 +49,10 @@ if(loginID != null){
 				</div></li>
 				<li class="menu"><a href="#">강사</a>
 				<div class="submenu">
-					<a href="#">강사 목록</a> <a href="#">매칭 신청</a>
+					<a href="instList.jsp">강사 목록</a>
+					<c:if test="${sessionScope.memType eq 'instructor'}">
+          	<a href="inst_regi.jsp">강사 등록</a>
+        	</c:if>
 				</div></li>
 			<li class="menu"><a href="#">게시판</a>
 				<div class="submenu">

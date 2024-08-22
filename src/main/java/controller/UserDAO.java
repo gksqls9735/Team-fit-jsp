@@ -259,19 +259,22 @@ public class UserDAO {
 			pstmt = conn.prepareStatement("SELECT * FROM USERT ORDER BY REGDATE ASC");
 			rs = pstmt.executeQuery();
 			while (rs.next()) {
-				vo = new UserVO();
-				vo.setMemberID(rs.getString("MEMBERID"));
-				vo.setMemberPW(rs.getString("MEMBERPW"));
-				vo.setMemberName(rs.getString("MEMBERNAME"));
-				vo.setMemberEmail(rs.getString("MEMBEREMAIL"));
-				vo.setMemberType(rs.getString("MEMBERTYPE"));
-				vo.setPostcode(rs.getString("POSTCODE"));
-				vo.setAddress(rs.getString("ADDRESS"));
-				vo.setDetailAddress(rs.getString("DETAILADDRESS"));
-				vo.setExtraAddress(rs.getString("EXTRAADDRESS"));
-				vo.setPhoneNum(rs.getString("PHONENUM"));
-				vo.setRegDate(rs.getDate("REGDATE"));
-				list.add(vo);
+				if (!rs.getString("MEMBERID").equals("admin1234")) {
+					vo = new UserVO();
+					vo.setMemberID(rs.getString("MEMBERID"));
+					vo.setMemberPW(rs.getString("MEMBERPW"));
+					vo.setMemberName(rs.getString("MEMBERNAME"));
+					vo.setMemberEmail(rs.getString("MEMBEREMAIL"));
+					vo.setMemberType(rs.getString("MEMBERTYPE"));
+					vo.setPostcode(rs.getString("POSTCODE"));
+					vo.setAddress(rs.getString("ADDRESS"));
+					vo.setDetailAddress(rs.getString("DETAILADDRESS"));
+					vo.setExtraAddress(rs.getString("EXTRAADDRESS"));
+					vo.setPhoneNum(rs.getString("PHONENUM"));
+					vo.setRegDate(rs.getDate("REGDATE"));
+					list.add(vo);
+				}
+
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
